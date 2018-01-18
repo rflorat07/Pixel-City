@@ -30,10 +30,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Double-tap to drop a pin and view photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTK-4t-IJC">
-                                        <rect key="frame" x="27.5" y="25.5" width="320" height="20"/>
+                                        <rect key="frame" x="30" y="25" width="315" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="1co-m9-AP0"/>
-                                            <constraint firstAttribute="width" constant="320" id="acA-Ik-CkU"/>
+                                            <constraint firstAttribute="width" constant="315" id="Eiv-Lf-xbv"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,7 +48,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="003-Vc-8Xs">
-                                <rect key="frame" x="309" y="597" width="50" height="50"/>
+                                <rect key="frame" x="309" y="596" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Z6x-rk-2g9"/>
                                     <constraint firstAttribute="height" constant="50" id="yLk-Ho-6tK"/>
@@ -59,32 +59,35 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAK-V3-Yzr">
-                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
+                                <rect key="frame" x="0.0" y="666" width="375" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" id="u3R-A9-vyB"/>
+                                    <constraint firstAttribute="height" constant="1" id="e7c-HM-dIF"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="SAK-V3-Yzr" firstAttribute="bottom" secondItem="Oel-iZ-Rfm" secondAttribute="bottom" id="4CW-oN-h6G"/>
                             <constraint firstItem="SAK-V3-Yzr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FQq-kY-nuV"/>
+                            <constraint firstItem="SAK-V3-Yzr" firstAttribute="top" secondItem="003-Vc-8Xs" secondAttribute="bottom" constant="20" id="LEQ-TY-bmU"/>
                             <constraint firstItem="Oel-iZ-Rfm" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Mlq-3u-N1Y"/>
                             <constraint firstItem="0Ra-34-uoq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MmV-8a-Zbv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="003-Vc-8Xs" secondAttribute="trailing" constant="16" id="V5d-0M-HZV"/>
                             <constraint firstItem="0Ra-34-uoq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="YZF-ta-nAg"/>
-                            <constraint firstItem="SAK-V3-Yzr" firstAttribute="top" secondItem="003-Vc-8Xs" secondAttribute="bottom" constant="20" id="YmW-1p-E0y"/>
+                            <constraint firstItem="SAK-V3-Yzr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Zmb-Zs-Vtg"/>
                             <constraint firstItem="Oel-iZ-Rfm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dgk-gY-5px"/>
                             <constraint firstItem="0Ra-34-uoq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iFB-LA-NKM"/>
                             <constraint firstAttribute="trailing" secondItem="SAK-V3-Yzr" secondAttribute="trailing" id="jhd-wF-EU1"/>
                             <constraint firstItem="Oel-iZ-Rfm" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="r4k-Qv-TT0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SAK-V3-Yzr" secondAttribute="bottom" id="t1J-hV-IYh"/>
                             <constraint firstItem="Oel-iZ-Rfm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vRG-Ip-Dbq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="Oel-iZ-Rfm" id="SS5-fx-jul"/>
+                        <outlet property="pullUpView" destination="SAK-V3-Yzr" id="wBa-CJ-TDZ"/>
+                        <outlet property="pullUpViewHeightConstraints" destination="e7c-HM-dIF" id="ZkI-mT-T0d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
