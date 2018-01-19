@@ -101,7 +101,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         collectionView?.addSubview(spinner!)
     }
     
-    func removeSpiner() {
+    func removeSpinner() {
         if spinner != nil {
             spinner?.removeFromSuperview()
         }
@@ -110,7 +110,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     func addprogressLbl() {
         progressLbl = UILabel()
         progressLbl?.frame = CGRect(x: (screenSize.width / 2) - 120, y: 175, width: 240, height: 40)
-        progressLbl?.font = UIFont(name: "Avenir Next", size: 16)
+        progressLbl?.font = UIFont(name: "Avenir Next", size: 14)
         progressLbl?.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         progressLbl?.textAlignment = .center
 
@@ -154,7 +154,7 @@ extension MapVC: MKMapViewDelegate {
     @objc func dropPin(_ sender: UIGestureRecognizer) {
         
         removePin()
-        removeSpiner()
+        removeSpinner()
         removeProgressLbl()
         cancelAllSessions()
         
@@ -179,21 +179,15 @@ extension MapVC: MKMapViewDelegate {
         mapView.setRegion(coordinateRegion, animated: true)
         
         retrieveUrls(forAnnotation: annotation) { (finished) in
-            
             if finished {
                 self.retrieveImages(handler: { (finished) in
                     if finished {
-                        self.retrieveImages(handler: { (finished) in
-                            if finished {
-                                self.removeSpiner()
-                                self.removeProgressLbl()
-                                self.collectionView?.reloadData()
-                            }
-                        })
+                        self.removeSpinner()
+                        self.removeProgressLbl()
+                        self.collectionView?.reloadData()
                     }
                 })
             }
-            
         }
     }
     
@@ -203,37 +197,29 @@ extension MapVC: MKMapViewDelegate {
         }
     }
     
-    func retrieveUrls(forAnnotation annotation: DroppablePin, handler: @escaping(_ status: Bool) -> ()) {
-        imageUrlArray = []
-        
+    func retrieveUrls(forAnnotation annotation: DroppablePin, handler: @escaping (_ status: Bool) -> ()) {
         Alamofire.request(flickrUrl(forApiKey: API_KEY, withAnnotation: annotation, andNumberOfPhotos: 40)).responseJSON { (response) in
-
             guard let json = response.result.value as? Dictionary<String, AnyObject> else { return }
+            let photosDict = json["photos"] as! Dictionary<String, AnyObject>
+            let photosDictArray = photosDict["photo"] as! [Dictionary<String, AnyObject>]
             
-            let photosDic = json["photos"] as? Dictionary<String, AnyObject>
-            let photosDictArray = photosDic!["photo"] as? [Dictionary<String, AnyObject>]
-           
-            for photo in photosDictArray! {
+            for photo in photosDictArray {
                 let postUrl = "https://farm\(photo["farm"]!).staticflickr.com/\(photo["server"]!)/\(photo["id"]!)_\(photo["secret"]!)_h_d.jpg"
-                
                 self.imageUrlArray.append(postUrl)
             }
             handler(true)
         }
-        
     }
     
     
-    func retrieveImages(handler: @escaping(_ status: Bool) -> ()) {
-        imageArray = []
-        
+    func retrieveImages(handler: @escaping (_ status: Bool) -> ()) {
         for url in imageUrlArray {
             Alamofire.request(url).responseImage(completionHandler: { (response) in
                 guard let image = response.result.value else { return }
                 self.imageArray.append(image)
                 self.progressLbl?.text = "\(self.imageArray.count)/40 IMAGES DOWNLOADED"
                 
-                if self.imageArray.count == self.imageArray.count {
+                if self.imageArray.count == self.imageUrlArray.count {
                     handler(true)
                 }
             })
