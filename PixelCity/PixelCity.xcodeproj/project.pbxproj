@@ -15,6 +15,7 @@
 		4F6EAA682010D94E004FC1A7 /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EAA672010D94E004FC1A7 /* DroppablePin.swift */; };
 		4F6EAA6A2010EE6E004FC1A7 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EAA692010EE6E004FC1A7 /* PhotoCell.swift */; };
 		4F6EAA6C2010F832004FC1A7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EAA6B2010F832004FC1A7 /* Constants.swift */; };
+		4F70D4282011F68E0057B585 /* PopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F70D4272011F68D0057B585 /* PopVC.swift */; };
 		A5B43F0BCA7732BB2F7415D6 /* Pods_PixelCity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15D2063DC9B504C691B80AB5 /* Pods_PixelCity.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		4F6EAA672010D94E004FC1A7 /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
 		4F6EAA692010EE6E004FC1A7 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		4F6EAA6B2010F832004FC1A7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4F70D4272011F68D0057B585 /* PopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopVC.swift; sourceTree = "<group>"; };
 		811B8ADFDE64722B20DBC674 /* Pods-PixelCity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixelCity.release.xcconfig"; path = "Pods/Target Support Files/Pods-PixelCity/Pods-PixelCity.release.xcconfig"; sourceTree = "<group>"; };
 		ABE5DDFD9640F55863BEE154 /* Pods-PixelCity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PixelCity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PixelCity/Pods-PixelCity.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				4F6EAA532010B57C004FC1A7 /* MapVC.swift */,
+				4F70D4272011F68D0057B585 /* PopVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F70D4282011F68E0057B585 /* PopVC.swift in Sources */,
 				4F6EAA6C2010F832004FC1A7 /* Constants.swift in Sources */,
 				4F6EAA6A2010EE6E004FC1A7 /* PhotoCell.swift in Sources */,
 				4F6EAA542010B57C004FC1A7 /* MapVC.swift in Sources */,
